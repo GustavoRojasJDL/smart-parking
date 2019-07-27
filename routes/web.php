@@ -1,4 +1,5 @@
 <?php
+use App\Http\Controllers\SlotController;
 
 /*
 |--------------------------------------------------------------------------
@@ -12,13 +13,24 @@
 */
 
 Route::get('/', function () {
-  return view('auth.login');
+  if(Auth::guest()){
+    return view('auth.login');
+  }
+  else{
+    return view('index'); 
+  }
+});
+Route::get('/welcome', function (){
+  if(Auth::guest()){
+    return view('auth.login');
+  }
+  else{
+    return view('slots.index'); 
+  }
 });
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/welcome', function (){
-  return view('welcome');
-});
+Route::resource('/welcome', 'SlotController')->middleware('auth');

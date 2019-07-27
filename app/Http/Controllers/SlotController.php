@@ -3,8 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Slot;
 
-class VideoController extends Controller
+class SlotController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,6 +14,8 @@ class VideoController extends Controller
      */
     public function index()
     {
+        $slots = Slot::all();
+        return view("slots.index", ['slots' => $slots]);
         //
     }
 
