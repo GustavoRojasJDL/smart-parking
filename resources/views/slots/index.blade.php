@@ -85,7 +85,7 @@
 
 </head>
 
-<body class="fondo">
+<body class="fondo" onload="setInterval('location.reload()',5000)">
     <div class="flex-center position-ref full-height">
         @if (Route::has('login'))
         <div class="top-right links">

@@ -24,8 +24,14 @@ class SlotController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
+        $slots = new Slot();
+        $slots->name = $request->input('name');
+        $slots->status = $request->input('status');
+
+        $slots->save();
+        return response()->json($slots);
         //
     }
 
