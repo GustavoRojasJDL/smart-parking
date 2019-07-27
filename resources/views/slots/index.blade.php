@@ -65,6 +65,22 @@
         .m-b-md {
             margin-bottom: 30px;
         }
+
+        .my-custom-scrollbar {
+            position: relative;
+            height: 200px;
+            overflow: auto;
+        }
+
+        .table-wrapper-scroll-y {
+            display: block;
+        }
+
+        #map {
+            width: 100%;
+            height: 400px;
+            background-color: grey;
+        }
     </style>
 
 </head>
@@ -92,26 +108,29 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-8">
-                    <img style="border-style:solid" src="{{ asset('./img/smartparkingSolutions.jpg') }}" alt="NoJala">
+                <div class="col-md-8" id="map">
+                    {{-- <img style="border-style:solid" src="{{ asset('./img/smartparkingSolutions.jpg') }}"
+                    alt="NoJala"> --}}
                 </div>
                 <div class="col-md-4">
-                    <table class="table">
-                        <thead class="thead-dark">
-                            <tr>
-                                <th scope="col">Nombre</th>
-                                <th scope="col">Estado</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @foreach ($slots as $slot)
+                    <div class="table-wrapper-scroll-y my-custom-scrollbar">
+                        <table class="table">
+                            <thead class="thead-dark">
+                                <tr>
+                                    <th scope="col">Nombre</th>
+                                    <th scope="col">Estado</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach ($slots as $slot)
                                 <tr>
                                     <td>{{ $slot->name }}</td>
                                     <td>{{ $slot->status }}</td>
                                 </tr>
-                            @endforeach
-                        </tbody>
-                    </table>
+                                @endforeach
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
         </div>
@@ -124,6 +143,24 @@
     </script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+    </script>
+    <script>
+        // Initialize and add the map
+            function initMap() {
+              // The location of une
+              var une = {lat: 22.282285, lng: -97.872184};
+              // The map, centered at une
+              var map = new google.maps.Map(
+                  document.getElementById('map'), {zoom: 20, center: une});
+              // The marker, positioned at une
+              var marker = new google.maps.Marker({position: une, map: map ,});
+            }
+    </script>
+    @php
+        $key = 'AIzaSyDqsdnNHbNbmHIJq9_qtKTe-MrgWYLIM54';
+    @endphp
+    <script async defer
+        src="https://maps.googleapis.com/maps/api/js?key={{ $key }}&callback=initMap">
     </script>
 </body>
 
