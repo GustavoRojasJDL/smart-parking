@@ -76,7 +76,7 @@
 
         .my-custom-scrollbar {
             position: relative;
-            height: 400px;
+            height: 367px;
             overflow: auto;
         }
 
