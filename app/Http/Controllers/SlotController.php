@@ -15,7 +15,7 @@ class SlotController extends Controller
     public function index()
     {
         $slots = Slot::all();
-        return view("slots.index", ['slots' => $slots]);
+        return view("index", ['slots' => $slots]);
         //
     }
 
