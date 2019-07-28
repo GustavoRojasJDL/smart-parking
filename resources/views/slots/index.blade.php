@@ -68,7 +68,7 @@
 
         .my-custom-scrollbar {
             position: relative;
-            height: 200px;
+            height: 400px;
             overflow: auto;
         }
 
@@ -86,11 +86,44 @@
 </head>
 
 <body class="fondo" onload="setInterval('location.reload()',5000)">
+
+    <div class="pos-f-t">
+        <div class="collapse" id="navbarToggleExternalContent">
+          <div class="bg-dark p-4">
+            <h5 class="text-white h4">Collapsed content</h5>
+            <span class="text-muted">Toggleable via the navbar brand.</span>
+          </div>
+        </div>
+        <nav class="navbar navbar-dark bg-dark">
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          asd
+        </nav>
+      </div>
+
     <div class="flex-center position-ref full-height">
         @if (Route::has('login'))
         <div class="top-right links">
             @auth
             <a href="{{ url('/') }}">Home</a>
+            <li class="nav-item dropdown">
+                    <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                        {{ Auth::user()->name }} <span class="caret"></span>
+                    </a>
+
+                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="{{ route('logout') }}"
+                           onclick="event.preventDefault();
+                                         document.getElementById('logout-form').submit();">
+                            {{ __('Logout') }}
+                        </a>
+
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                            @csrf
+                        </form>
+                    </div>
+                </li>
             @else
             <a href="{{ route('login') }}">Login</a>
 
@@ -109,8 +142,8 @@
             </div>
             <div class="row">
                 <div class="col-md-8" id="map">
-                    {{-- <img style="border-style:solid" src="{{ asset('./img/smartparkingSolutions.jpg') }}"
-                    alt="NoJala"> --}}
+                    <img style="border-style:solid" src="{{ asset('./img/smartparkingSolutions.jpg') }}"
+                    alt="NoJala">
                 </div>
                 <div class="col-md-4">
                     <div class="table-wrapper-scroll-y my-custom-scrollbar">
@@ -144,7 +177,7 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
     </script>
-    <script>
+    {{-- <script>
         // Initialize and add the map
             function initMap() {
               // The location of une
@@ -155,7 +188,7 @@
               // The marker, positioned at une
               var marker = new google.maps.Marker({position: une, map: map ,});
             }
-    </script>
+    </script> --}}
     @php
         $key = 'AIzaSyDqsdnNHbNbmHIJq9_qtKTe-MrgWYLIM54';
     @endphp

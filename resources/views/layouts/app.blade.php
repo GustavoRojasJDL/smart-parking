@@ -22,7 +22,7 @@
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+        <nav class="navbar navbar-expand-md navbar-dark bg-dark shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
                     {{ config('app.name', 'Laravel') }}
@@ -42,11 +42,14 @@
                         <!-- Authentication Links -->
                         @guest
                             <li class="nav-item">
-                                <a style="color:darkred" class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                                <a style="color:white" class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                            </li>
+                            <li class="nav-item">
+                                    <a style="color:white" class="nav-link" href="{{ route('login') }}">{{ __('Logout') }}</a>
                             </li>
                             @if (Route::has('register'))
                                 <li class="nav-item">
-                                    <a style="color:darkred" class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                                    <a style="color:white" class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
                                 </li>
                             @endif
                         @else
