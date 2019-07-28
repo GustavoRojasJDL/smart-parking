@@ -17,15 +17,7 @@ Route::get('/', function () {
     return view('auth.login');
   }
   else{
-    return view('index'); 
-  }
-});
-Route::get('/welcome', function (){
-  if(Auth::guest()){
-    return view('auth.login');
-  }
-  else{
-    return view('slots.index'); 
+    return redirect('/home'); 
   }
 });
 
@@ -33,4 +25,4 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::resource('/welcome', 'SlotController')->middleware('auth');
+Route::resource('/home', 'SlotController')->middleware('auth');
