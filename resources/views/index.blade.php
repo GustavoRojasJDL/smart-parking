@@ -47,40 +47,40 @@
         </nav>
     </div> --}}
     <div class="container-fluid">
-        <div class="flex-center position-ref full-height">
-            <div class="container">
-                <div class="row">
-                    <div class="title m-b-md" style="color:darkred">
-                        Estacionamiento Inteligente
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-8" {{-- id="map" --}}>
-                        <img style="border-style:solid" src="{{ asset('./img/smartparkingSolutions.jpg') }}" alt="NoJala">
-                    </div>
-                    <div class="col-md-4">
-                        <div class="table-wrapper-scroll-y my-custom-scrollbar">
-                            <table class="table">
-                                <thead class="thead-dark">
-                                    <tr>
-                                        <th scope="col">Nombre</th>
-                                        <th scope="col">Estado</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    @foreach ($slots as $slot)
-                                    <tr>
-                                        <td>{{ $slot->name }}</td>
-                                        <td>{{ $slot->status }}</td>
-                                    </tr>
-                                    @endforeach
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
+        <div class="row">
+            <div class="col-md-8" {{-- id="map" --}}>
+                <img style="border-style:solid" src="{{ asset('./img/smartparkingSolutions.jpg') }}" alt="NoJala" class="img-fluid">
+            </div>
+            <div class="col-md-4">
+                <div class="table-wrapper-scroll-y my-custom-scrollbar">
+                    <table class="table">
+                        <thead class="thead-dark">
+                            <tr>
+                                <th scope="col">Nombre</th>
+                                <th scope="col">Estado</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach ($slots as $slot)
+                            <tr>
+                                <td>{{ $slot->name }}</td>
+                                <td>{{ $slot->status }}</td>
+                            </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>
+        {{-- <div class="flex-center position-ref full-height">
+            <div class="row">
+                <div class="title m-b-md" style="color:darkred">
+                    Estacionamiento Inteligente
+                </div>
+            </div>
+            <div class="container">
+            </div>
+        </div> --}}
     </div>
     {{-- <script>
         // Initialize and add the map
