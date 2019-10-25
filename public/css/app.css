@@ -7869,7 +7869,30 @@ a.text-dark:focus, a.text-dark:hover {
   border: 1px solid red;
 }
 
-.bdimg{
-  background: url(../img/01.jpg) !important;
+#Title{
+  color: white;
+  font-size: 3em;
+  text-align: center;
+  background-color: black;
+  padding: .25em .25em .25em .25em;
+}
+
+#ParkingSlots{
+  text-align: center;
+}
+
+#DivParkingSlots{
+  margin-top: .25em;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+
+.tbSlots{
+  color: black;
+  margin-left: 31em;
+  width: 20%;
+  border: 1px solid black;
 }
 
