@@ -12,15 +12,27 @@
 <div class="container">
     <div class="row">
         <div class="title" style="color:darkred">
-            Estacionamiento Inteligente
+            {{ config('app.name', 'Laravel') }}
         </div>
     </div>
     <div class="row">
         <div class="col-md-8" {{-- id="map" --}}>
-            <img style="border-style:solid" src="{{ asset('./img/smartparkingSolutions.jpg') }}" alt="NoJala"
-                class="img-fluid">
+            {{-- <img style="border-style:solid" src="{{ asset('./img/smartparkingSolutions.jpg') }}" alt="NoJala"
+            class="img-fluid"> --}}
+            @foreach ($slots as $slot)
+            @if ($slot->Status != 1)
+            <div class="prueba">
+                hola
+            </div>
+            @else
+            <div class="prueba">
+                adios
+            </div>
+            @endif
+                
+            @endforeach
         </div>
-        <div class="col-md-4">
+        <div class="col-md-4" id="here">
             <div class="table-wrapper-scroll-y my-custom-scrollbar">
                 <table class="table">
                     <thead class="thead-dark">
@@ -33,7 +45,11 @@
                         @foreach ($slots as $slot)
                         <tr>
                             <td>{{ $slot->name }}</td>
-                            <td>{{ $slot->status }}</td>
+                            @if ($slot->Status == 1)
+                            <td>Ocupado</td>
+                            @else
+                            <td>Desocupado</td>
+                            @endif
                         </tr>
                         @endforeach
                     </tbody>

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Slot;
+use App\User;
 
 class SlotController extends Controller
 {
@@ -15,7 +16,7 @@ class SlotController extends Controller
     public function index()
     {
         $slots = Slot::all();
-        return view("index", ['slots' => $slots]);
+        return view('index', ['slots' => $slots]);
         //
     }
 
@@ -63,8 +64,11 @@ class SlotController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($user,$id)
     {
+        $slots = Slot::all();
+        $users = User::find($user);
+        return view('admin.index', ['user' => $users, 'slots' => $slots]);
         //
     }
 
@@ -75,8 +79,17 @@ class SlotController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $slot,$user)
     {
+        $slots = Slot::find($slot);
+        if($request->status == "ocupado"){
+            $slots->status = "Desocupado";
+        }else{
+            $slots->status = "ocupado";
+        }
+        $slots->save();
+        /* return redirect('/'); */
+        return view('admin.index', ['user' => 1, 'slots' => 1]);
         //
     }
 

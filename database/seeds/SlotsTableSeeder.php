@@ -17,7 +17,7 @@ class SlotsTableSeeder extends Seeder
         for($i = 1; $i < 101 ; $i++){
             $slot = new Slot;
             $slot->name = 'Cajon'.$i;
-            $slot->status = 'ocupados';
+            $slot->status = 1;
             $slot->created_at = $faker->dateTime();
             $slot->updated_at = null;
             $slot->save();

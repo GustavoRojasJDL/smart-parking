@@ -28,3 +28,4 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::resource('/home', 'SlotController')->middleware('auth');
 
+Route::resource('admin/{user}/slots','SlotController')->middleware('auth');
