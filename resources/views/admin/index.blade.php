@@ -43,7 +43,7 @@
                 @else
                 <td>Desocupado</td>
                 @endif
-                <td><button type="submit" class="btn btn-primary">Cambio de estado</button></td>
+                <td><a class="btn btn-primary" href="#" role="button">Cambio de estado</a></td>
               </form>
             </tr>
             @endforeach
@@ -54,7 +54,7 @@
   </div>
 </div>
 <script>
-  function name(params) {
+  function sendRequest() {
     
   }
 </script>

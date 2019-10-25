@@ -29,7 +29,7 @@
                 adios
             </div>
             @endif
-                
+
             @endforeach
         </div>
         <div class="col-md-4" id="here">
@@ -58,6 +58,13 @@
         </div>
     </div>
 </div>
+{{-- <script>
+    $(document).ready(function() {
+        setInterval(() => {
+            $('#here').load('table.php');
+        }, 2000);
+    })
+</script> --}}
 {{-- <script>
         // Initialize and add the map
             function initMap() {
