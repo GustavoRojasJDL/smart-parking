@@ -79,17 +79,19 @@ class SlotController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $slot,$user)
+    public function update(Request $request, $user,$slot)
     {
         $slots = Slot::find($slot);
-        if($request->status == "ocupado"){
-            $slots->status = "Desocupado";
+        if($request->Status == "1"){
+            $slots->Status = "3";
         }else{
-            $slots->status = "ocupado";
+            $slots->Status = "1";
         }
         $slots->save();
+
+        $slots = Slot::all();
         /* return redirect('/'); */
-        return view('admin.index', ['user' => 1, 'slots' => 1]);
+        return view('admin.index', ['user' => $user, 'slots' => $slots]);
         //
     }
 

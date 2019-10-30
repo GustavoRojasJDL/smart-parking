@@ -20,16 +20,31 @@
             {{-- <img style="border-style:solid" src="{{ asset('./img/smartparkingSolutions.jpg') }}" alt="NoJala"
             class="img-fluid"> --}}
             @foreach ($slots as $slot)
-            @if ($slot->Status != 1)
+            @php
+            $type = $slot->Status
+            @endphp
+            @switch($type)
+            @case(1)
             <div class="prueba">
                 hola
             </div>
-            @else
+            @break
+            @case(2)
             <div class="prueba">
                 adios
             </div>
-            @endif
-
+            @break
+            @case(3)
+            <div class="prueba">
+                buenas
+            </div>
+            @break
+            @default
+            <div class="prueba">
+                adios
+            </div>
+            @break
+            @endswitch
             @endforeach
         </div>
         <div class="col-md-4" id="here">

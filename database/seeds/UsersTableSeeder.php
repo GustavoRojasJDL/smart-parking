@@ -19,6 +19,7 @@ class UsersTableSeeder extends Seeder
             $user->name = $faker->name;
             $user->email = $faker->unique()->email;
             $user->password = Hash::make('12345678');
+            $user->type_user = 2;
             $user->save();
         }
         //
