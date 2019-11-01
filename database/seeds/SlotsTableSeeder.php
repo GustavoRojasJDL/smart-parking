@@ -14,7 +14,7 @@ class SlotsTableSeeder extends Seeder
     public function run()
     {
         $faker = Faker::create();
-        for($i = 1; $i < 101 ; $i++){
+        for($i = 1; $i < 8 ; $i++){
             $slot = new Slot;
             $slot->name = 'Cajon'.$i;
             $slot->status = 1;
