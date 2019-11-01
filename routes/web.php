@@ -18,14 +18,11 @@ Route::get('/', function () {
     return view('auth.login');
   }
   else{
-    return redirect('/home'); 
+    return redirect('/slots'); 
   }
 });
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
 
-Route::resource('/home', 'SlotController')->middleware('auth');
-
-Route::resource('admin/{user}/slots','SlotController')->middleware('auth');
+Route::resource('/slots', 'SlotController')->middleware('auth');

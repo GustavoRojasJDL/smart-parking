@@ -64,11 +64,10 @@ class SlotController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($user,$id)
+    public function edit()
     {
         $slots = Slot::all();
-        $users = User::find($user);
-        return view('admin.index', ['user' => $users, 'slots' => $slots]);
+        return view('edit', ['slots' => $slots]);
         //
     }
 
@@ -79,7 +78,7 @@ class SlotController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $user,$slot)
+    public function update(Request $request, $slot)
     {
         $slots = Slot::find($slot);
         if($request->Status == "1"){
@@ -90,8 +89,7 @@ class SlotController extends Controller
         $slots->save();
 
         $slots = Slot::all();
-        /* return redirect('/'); */
-        return view('admin.index', ['user' => $user, 'slots' => $slots]);
+        return view('edit', ['slots' => $slots]);
         //
     }
 

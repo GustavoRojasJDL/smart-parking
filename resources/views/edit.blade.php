@@ -28,6 +28,7 @@
               <th scope="col">Nombre</th>
               <th scope="col">Estado</th>
               <th scope="col">Cambiar estado</th>
+              {{-- <th scope="col">Inhabilitar</th> --}}
             </tr>
           </thead>
           <tbody>
@@ -52,12 +53,11 @@
               @break
               @endswitch
               <td>
-                <form action="{{ route('slots.update',['user'=>$user,'slot'=>$slot]) }}" method="POST">
+                <form action="{{ route('slots.update',['slot'=>$slot]) }}" method="POST">
                   @csrf
                   {{ method_field('PUT') }}
                   <input type="hidden" name="Status" value="{{ $slot->Status }}">
                   <button type="submit" class="btn btn-primary">Cambio de estado</button>
-                  {{-- <a class="btn btn-primary" href="#" role="button">Cambio de estado</a> --}}
                 </form>
               </td>
             </tr>
