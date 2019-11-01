@@ -28,7 +28,7 @@
               <th scope="col">Nombre</th>
               <th scope="col">Estado</th>
               <th scope="col">Cambiar estado</th>
-              <th scope="col">Inhabilitar</th>
+              {{-- <th scope="col">Inhabilitar</th> --}}
             </tr>
           </thead>
           <tbody>
@@ -37,7 +37,7 @@
               <input type="hidden" name="{{ $slot->id }}">
               <td>{{ $slot->name }}</td>
               @php
-                $type = $slot->Status
+              $type = $slot->Status
               @endphp
               @switch($type)
               @case(1)
@@ -68,8 +68,8 @@
     </div>
   </div>
 </div>
-{{-- <script>
-  /* function sendRequest() {
+<script>
+  function sendRequest() {
     $.ajax({
       type:"POST",
       url:,
@@ -77,6 +77,6 @@
         
       }
     })
-  } */
-</script> --}}
+  }
+</script>
 @endsection
