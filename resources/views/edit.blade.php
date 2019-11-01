@@ -28,23 +28,38 @@
               <th scope="col">Nombre</th>
               <th scope="col">Estado</th>
               <th scope="col">Cambiar estado</th>
+              <th scope="col">Inhabilitar</th>
             </tr>
           </thead>
           <tbody>
             @foreach ($slots as $slot)
             <tr>
-              <form action="{{ route('slots.update',['user'=>$user,'slot'=>$slot]) }}" method="POST">
-                @csrf
-                {{ method_field('PUT') }}
-                <input type="hidden" name="{{ $slot->id }}">
-                <td>{{ $slot->name }}</td>
-                @if ($slot->Status == 1)
-                <td>Ocupado</td>
-                @else
-                <td>Desocupado</td>
-                @endif
-                <td><a class="btn btn-primary" href="#" role="button">Cambio de estado</a></td>
-              </form>
+              <input type="hidden" name="{{ $slot->id }}">
+              <td>{{ $slot->name }}</td>
+              @php
+                $type = $slot->Status
+              @endphp
+              @switch($type)
+              @case(1)
+              <td>Ocupado</td>
+              @break
+              @case(2)
+              <td>Desocupado</td>
+              @break
+              @case(3)
+              <td>Inhabilitado</td>
+              @break
+              @default
+              @break
+              @endswitch
+              <td>
+                <form action="{{ route('slots.update',['slot'=>$slot]) }}" method="POST">
+                  @csrf
+                  {{ method_field('PUT') }}
+                  <input type="hidden" name="Status" value="{{ $slot->Status }}">
+                  <button type="submit" class="btn btn-primary">Cambio de estado</button>
+                </form>
+              </td>
             </tr>
             @endforeach
           </tbody>
@@ -53,8 +68,8 @@
     </div>
   </div>
 </div>
-<script>
-  function sendRequest() {
+{{-- <script>
+  /* function sendRequest() {
     $.ajax({
       type:"POST",
       url:,
@@ -62,6 +77,6 @@
         
       }
     })
-  }
-</script>
+  } */
+</script> --}}
 @endsection
