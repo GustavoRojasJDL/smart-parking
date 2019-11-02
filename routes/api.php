@@ -1,5 +1,6 @@
 <?php
 
+use App\Slot;
 use Illuminate\Http\Request;
 
 /*
@@ -17,5 +18,18 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::post('/slot','SlotController@create');
-Route::put('/slot/{id}','SlotController@update');
+Route::resource('/slots','SlotController')->middleware('auth:api');
+Route::middleware('auth:api')->get('/slots',function(){
+    $datos = Slot::all();
+    $arr = [];
+    foreach ($datos as $dato) {
+        $arr2 = [
+            'title' => $dato->name,
+            'created_at' => $dato->created_at,
+            'content' => $dato->content,
+            'user_url' => request()->url()."/$dato->user_id/"
+        ];
+        $arr[$dato->id] = $arr2;
+    }
+    return $arr;
+});
