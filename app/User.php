@@ -2,14 +2,15 @@
 
 namespace App;
 
+use Illuminate\Auth\EloquentUserProvider;
 use Illuminate\Notifications\Notifiable;
-use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Zizaco\Entrust\Traits\EntrustUserTrait;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends Authenticatable
 {
-    use Notifiable;
-
+    use Notifiable, EntrustUserTrait;
+    
     /**
      * The attributes that are mass assignable.
      *

@@ -66,8 +66,6 @@ class SlotController extends Controller
      */
     public function edit()
     {
-        $slots = Slot::all();
-        return view('edit', ['slots' => $slots]);
         //
     }
 
@@ -89,7 +87,7 @@ class SlotController extends Controller
         $slots->save();
 
         $slots = Slot::all();
-        return view('edit', ['slots' => $slots]);
+        return view('index', ['slots' => $slots]);
         //
     }
 

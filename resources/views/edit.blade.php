@@ -68,15 +68,4 @@
     </div>
   </div>
 </div>
-<script>
-  function sendRequest() {
-    $.ajax({
-      type:"POST",
-      url:,
-      data: {
-        
-      }
-    })
-  }
-</script>
 @endsection

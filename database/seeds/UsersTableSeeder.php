@@ -14,14 +14,20 @@ class UsersTableSeeder extends Seeder
     public function run()
     {
         $faker = Faker::create();
-        for($i = 0; $i < 5 ; $i++){
-            $user = new User;
+        $user = new User();
+        $user->name = "administrador";
+        $user->email = "admin@une.edu.mx";
+        $user->password = Hash::make('12345678');
+        $user->save();
+        for($i = 0; $i < 1 ; $i++){
+            $user = new User();
             $user->name = $faker->name;
             $user->email = $faker->unique()->email;
             $user->password = Hash::make('12345678');
-            $user->type_user = 2;
             $user->save();
         }
+
+        
         //
     }
 }

@@ -173,12 +173,17 @@
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
     </script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@beta/dist/js.cookie.min.js"></script>
     <script type="text/javascript">
         $(window).load(function() {
-            setTimeout(() => {
-                $(".loader").fadeOut("slow");
-            }, 1000 );
-        });
+
+/*             if(Cookies.get("loadCount") != "1"){
+ */                setTimeout(() => {
+                    $(".loader").fadeOut("slow");
+                }, 1000 );
+                Cookies.set("loadCount","1");
+/*             }
+ */        });
         $(document).ready(function() {
             $(".dropdown-toggle").dropdown();
         });
