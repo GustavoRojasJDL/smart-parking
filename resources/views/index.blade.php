@@ -62,11 +62,22 @@
                         @foreach ($slots as $slot)
                         <tr>
                             <td>{{ $slot->name }}</td>
-                            @if ($slot->Status == 1)
+                            @php
+                            $type = $slot->Status
+                            @endphp
+                            @switch($type)
+                            @case(1)
                             <td>Ocupado</td>
-                            @else
+                            @break
+                            @case(2)
                             <td>Desocupado</td>
-                            @endif
+                            @break
+                            @case(3)
+                            <td>Inhabilitado</td>
+                            @break
+                            @default
+                            @break
+                            @endswitch
                         </tr>
                         @endforeach
                     </tbody>
