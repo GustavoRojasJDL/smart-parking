@@ -19,7 +19,7 @@ class RoleTableSeeder extends Seeder
         $admin->description  = 'User is allowed to manage and edit other users'; // optional
         $admin->save();
 
-        $user = User::where('name', '=', 'administrador')->firstOrFail();
+        $user = User::where('name', '=', 'administrador%')->firstOrFail();
         $user->attachRole($admin); // parameter can be an Role object, array, or id
 
         $viewer = new Role();
@@ -28,7 +28,9 @@ class RoleTableSeeder extends Seeder
         $viewer->description  = 'User is only allowed to view'; // optional
         $viewer->save();
 
-        for($i = 2; $i < 3; $i++){
+        $user = User::all();
+        $len = sizeof($user);
+        for($i = 2; $i < $len; $i++){
             $user = User::find($i);
             $user->attachRole($viewer); // parameter can be an Role object, array, or id
         }

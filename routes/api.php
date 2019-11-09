@@ -19,7 +19,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::resource('/slots','SlotController');
-Route::get('/slots',function(){
+/* Route::get('/slots',function(){
     $datos = Slot::all();
     $arr = [];
     foreach ($datos as $dato) {
@@ -33,4 +33,4 @@ Route::get('/slots',function(){
         $arr[$dato->name] = $arr2;
     }
     return $arr;
-});
+}); */

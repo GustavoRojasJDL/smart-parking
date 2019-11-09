@@ -1,8 +1,8 @@
 <?php
 
+use App\User;
 use Illuminate\Database\Seeder;
 use Faker\Factory as Faker;
-use App\User;
 
 class UsersTableSeeder extends Seeder
 {
@@ -19,7 +19,7 @@ class UsersTableSeeder extends Seeder
         $user->email = "admin@une.edu.mx";
         $user->password = Hash::make('12345678');
         $user->save();
-        for($i = 0; $i < 1 ; $i++){
+        for($i = 0; $i < 10 ; $i++){
             $user = new User();
             $user->name = $faker->name;
             $user->email = $faker->unique()->email;

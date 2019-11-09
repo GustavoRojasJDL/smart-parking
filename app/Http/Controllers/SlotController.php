@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Slot;
 use App\User;
+use Dotenv\Regex\Success;
+use Illuminate\Auth\Events\Failed;
+use Psy\Util\Json;
 
 class SlotController extends Controller
 {
@@ -29,7 +32,7 @@ class SlotController extends Controller
     {
         $slots = new Slot();
         $slots->name = $request->input('name');
-        $slots->status = $request->input('status');
+        $slots->Status = $request->input('status');
 
         $slots->save();
         return response()->json($slots);
@@ -38,12 +41,22 @@ class SlotController extends Controller
 
     /**
      * Store a newly created resource in storage.
-     *
+     
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
     {
+        $slots = Slot::find($request);
+        if($slots[0]->Status != 3){
+            if($slots[0]->Status == 2){
+                $slots[0]->Status = 1;
+            }else{
+                $slots[0]->Status = 2;
+            }
+        }
+        $slots[0]->save();
+        return $request;
         //
     }
 
@@ -79,10 +92,12 @@ class SlotController extends Controller
     public function update(Request $request, $slot)
     {
         $slots = Slot::find($slot);
-        if($request->Status == "1"){
-            $slots->Status = "3";
+        if($slots->Status == 1 || $slots->Status == 2){
+            $slots->Status = 3;
         }else{
-            $slots->Status = "1";
+            if($slot->Status == 1){
+                $slots->Status = 2;
+            }
         }
         $slots->save();
 

@@ -141,7 +141,7 @@
                             @break
                             @endswitch
                             <td>
-                                <form action="{{ route('slots.update',['slot'=>$slot]) }}" method="POST">
+                                <form action="{{ route('slots.update',['slot'=>$slot->id]) }}" method="POST">
                                     @csrf
                                     {{ method_field('PUT') }}
                                     <input type="hidden" name="Status" value="{{ $slot->Status }}">
