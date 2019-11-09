@@ -47,12 +47,14 @@ class SlotController extends Controller
      */
     public function store(Request $request)
     {
-        $slots = Slot::find($request);
+        $status = $request->status;
+        $id = $request->id;
+        $slots[0] = Slot::find($id);
         if($slots[0]->Status != 3){
-            if($slots[0]->Status == 2){
-                $slots[0]->Status = 1;
-            }else{
+            if($status > 0.5){
                 $slots[0]->Status = 2;
+            }else{
+                $slots[0]->Status = 1;
             }
         }
         $slots[0]->save();

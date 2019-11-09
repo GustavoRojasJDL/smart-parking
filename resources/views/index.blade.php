@@ -1,6 +1,5 @@
 @extends('layouts.app')
 @section('content')
-
 @role(['viewer'])`
 <div class="loader">
     <div class="flex-center position-ref full-height">
