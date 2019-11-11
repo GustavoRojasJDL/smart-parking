@@ -18,9 +18,9 @@
     </div>
     <div class="row">
         <div class="col-md-8" {{-- id="map" --}}>
-            {{-- <img style="border-style:solid" src="{{ asset('./img/smartparkingSolutions.jpg') }}" alt="NoJala"
-            class="img-fluid"> --}}
-            @foreach ($slots as $slot)
+            <img style="border-style:solid" src="{{ asset('./img/smartparkingSolutions.jpeg') }}" alt="NoJala"
+                class="img-fluid">
+            {{-- @foreach ($slots as $slot)
             @php
             $type = $slot->Status
             @endphp
@@ -46,7 +46,7 @@
             </div>
             @break
             @endswitch
-            @endforeach
+            @endforeach --}}
         </div>
         <div class="col-md-4" id="here">
             <div class="table-wrapper-scroll-y my-custom-scrollbar">
@@ -104,8 +104,11 @@
     </div>
     <div class="row">
         <div class="col-md-6" id="DivParkingSlots">
-            <img style="border-style:solid" src="{{ asset('./img/ParkingSlots.jpg') }}" alt="imagen_Slots"
-                id="ParkingSlots" class="img-fluid">
+            {{-- <canvas id="myCanvas" width="800" height="400" style="border:1px solid #d3d3d3;">
+                Your browser does not support the HTML5 canvas tag.</canvas> --}}
+            <img style="border-style:solid" src="{{ asset('./img/smartparkingSolutions.jpeg') }}"
+            alt="imagen_Slots"
+            id="ParkingSlots" class="img-fluid">
         </div>
         <div class="col-md-6" id="here">
             <div class="table-wrapper-scroll-y my-custom-scrollbar">
