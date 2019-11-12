@@ -97,7 +97,7 @@ class SlotController extends Controller
         if($slots->Status == 1 || $slots->Status == 2){
             $slots->Status = 3;
         }else{
-            if($slot->Status == 1){
+            if($slots->Status == 3){
                 $slots->Status = 2;
             }
         }

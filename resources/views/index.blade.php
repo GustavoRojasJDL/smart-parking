@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('content')
 @role(['viewer'])`
-<div class="loader">
+{{-- <div class="loader">
     <div class="flex-center position-ref full-height">
         <div class="content">
             <div class="title m-b-md">
@@ -9,7 +9,7 @@
             </div>
         </div>
     </div>
-</div>
+</div> --}}
 <div class="container">
     <div class="row">
         <div class="title" style="color:darkred">
@@ -87,7 +87,7 @@
 </div>
 @endrole
 @role(['admin'])`
-<div class="loader">
+{{-- <div class="loader">
     <div class="flex-center position-ref full-height">
         <div class="content">
             <div class="title m-b-md">
@@ -95,7 +95,7 @@
             </div>
         </div>
     </div>
-</div>
+</div> --}}
 <div class="container">
     <div class="row">
         <div class="title" style="color:darkred">
@@ -104,8 +104,6 @@
     </div>
     <div class="row">
         <div class="col-md-6" id="DivParkingSlots">
-            {{-- <canvas id="myCanvas" width="800" height="400" style="border:1px solid #d3d3d3;">
-                Your browser does not support the HTML5 canvas tag.</canvas> --}}
             <img style="border-style:solid" src="{{ asset('./img/smartparkingSolutions.jpeg') }}"
             alt="imagen_Slots"
             id="ParkingSlots" class="img-fluid">
@@ -176,4 +174,5 @@
     @endphp --}}
 {{-- <script async defer src="https://maps.googleapis.com/maps/api/js?key={{ $key }}&callback=initMap">
 </script> --}}
+
 @endsection
