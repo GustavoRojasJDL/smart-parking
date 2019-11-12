@@ -239,8 +239,9 @@
     </script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/js-cookie@beta/dist/js.cookie.min.js"></script>
-    {{-- <script type="text/javascript">
-        $(window).load(function() {
+    
+    <script type="text/javascript">
+        /* $(window).load(function() {
 
 /*             if(Cookies.get("loadCount") != "1"){
  */                setTimeout(() => {
@@ -248,11 +249,11 @@
                 }, 1000 );
                 Cookies.set("loadCount","1");
 /*             }
- */        });
+       }); */
         $(document).ready(function() {
             $(".dropdown-toggle").dropdown();
         });
-    </script> --}}
+    </script>
 
 </body>
 

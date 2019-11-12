@@ -85,6 +85,9 @@
         </div>
     </div>
 </div>
+<script>
+    setTimeout('document.location.reload()',10000); 
+</script>
 @endrole
 @role(['admin'])`
 {{-- <div class="loader">
@@ -156,6 +159,9 @@
         </div>
     </div>
 </div>
+<script>
+    setTimeout('document.location.reload()',10000); 
+</script>
 @endrole
 {{-- <script>
         // Initialize and add the map

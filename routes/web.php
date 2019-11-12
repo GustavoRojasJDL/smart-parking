@@ -18,7 +18,7 @@ Route::get('/', function () {
     return view('auth.login');
   }
   else{
-    return redirect('/slots'); 
+    return redirect('/slots');
   }
 });
 

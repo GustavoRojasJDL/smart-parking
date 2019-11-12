@@ -3,6 +3,7 @@
 use App\Role;
 use App\User;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
 class RoleTableSeeder extends Seeder
 {
@@ -19,7 +20,7 @@ class RoleTableSeeder extends Seeder
         $admin->description  = 'User is allowed to manage and edit other users'; // optional
         $admin->save();
 
-        $user = User::where('name', '=', 'administrador%')->firstOrFail();
+        $user = User::find(1);
         $user->attachRole($admin); // parameter can be an Role object, array, or id
 
         $viewer = new Role();
